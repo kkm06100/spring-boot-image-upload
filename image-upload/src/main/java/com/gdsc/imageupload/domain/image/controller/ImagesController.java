@@ -36,12 +36,12 @@ public class ImagesController {
     }
 
     @GetMapping("/s3")
-    public void showImagesToS3(){
-        s3ImageService.getAllImagesFromS3();
+    public List<String> showImagesToS3(){
+        return s3ImageService.getAllImagesFromS3();
     }
 
     @DeleteMapping("/s3")
-    public void deleteImageToS3(String imageAddress){
+    public void deleteImageToS3(@RequestParam(name = "address") String imageAddress){
         s3ImageService.deleteImageFromS3(imageAddress);
     }
 }
